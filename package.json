@@ -1,5 +1,5 @@
 {
-  "name": " ",
+  "name": "cform",
   "version": "0.1.0",
   "description": "",
   "private": true,
@@ -25,6 +25,7 @@
     "react-scripts": "",
     "tslib": "",
     "@types/react": "",
+    "@types/react-native": "",
     "@types/react-dom": "",
     "@types/jest": "",
     "@types/node": "",
@@ -34,23 +35,40 @@
   },
   "dependencies": {
     "react": "",
+    "react-native-web": "",
     "react-dom": "",
     "mobx": "",
     "mobx-react": "",
-    "js-plus": ""
+    "js-plus": "",
+    "ajv": "",
+    "json-schema-empty": ""
   },
   "keywords": [],
   "license": "MIT",
   "main": "index.js",
   "jest": {
-    "transform": {".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"},
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js" ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "globals": {
       "__TS_CONFIG__": {
         "module": "commonjs",
         "jsx": "react"
       }
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalcib/cform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dalcib/cform/issues"
+  },
+  "homepage": "https://github.com/dalcib/cform#readme"
 }
