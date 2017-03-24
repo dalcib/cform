@@ -1,29 +1,36 @@
 import * as React from 'react'
+import {Component} from 'react'
 import { AppRegistry, StyleSheet, Text, View, TextInput } from 'react-native'
+import store from './store'
 
-let val = "xx"
-const change = (event: any) => console.log(event); // val = event.target.value
-
-// Components
 const Card = ({ children}: {children?: any}) => <View style={styles.card}>{children}</View>
 const Title = ({ children }: {children?: any}) => <Text style={styles.title}>{children}</Text>
-//const Photo = ({ uri }: {uri: string}) => <Image source={{ uri }} style={styles.image} />
-const App = () => (
-  <Card>
-    <Title>App Card</Title>
-    <Text> Teste sdfasdfasdfasdf </Text>
-    <TextInput
-        accessibilityLabel='Write a status update'
-        multiline
-        numberOfLines={2}
-        placeholder={`What's happening?`}
-        style={[styles.default]}
-        value={val}
-        onChange={change}
-    />
-    <Text> {val} </Text>
-  </Card>
-)
+
+class App extends Component<{}, {}> {
+  render() { return (
+    <Card>
+      <Title>App Card</Title>
+      <Text> Teste sdfasdfasdfasdf </Text>
+      <TextInput
+          accessibilityLabel='Write a status update'
+          multiline
+          numberOfLines={2}
+          placeholder={`What's happening?`}
+          style={[styles.default]}
+          testID="name"
+          value={store.data.name}
+          onChangeText={e => store.handleChangeRN({value:e, name:'name'})}
+      />
+      <Text> Teste sdfasdfasdfasdf </Text>
+      <TextInput
+          placeholder={`What's happening?`}
+          value={store.data.value}
+          onChangeText={e => store.handleChangeRN({value:e, name:'value'})}
+      />
+      <Text> {JSON.stringify(store.data)} </Text>
+    </Card>
+  )}
+}
 
 // Styles
 const styles: any = StyleSheet.create({
@@ -43,7 +50,8 @@ const styles: any = StyleSheet.create({
   //TextInput
   default: {
     borderColor: 'gray',
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    width: 400
   },
   focused: {
     borderColor: 'blue'
