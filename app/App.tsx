@@ -1,6 +1,6 @@
 import * as React from 'react';
 import HtmlForm from './html'
-import './rnw'
+import Rnw from './rnw'
 //import './../assets/App.css';
 
 //const logo = "require('./../public/logo.svg')";
@@ -16,7 +16,7 @@ class App extends React.Component<null, null> {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </div>
         <div style={style.box}>
-          fdsdfds
+          <Rnw />
         </div>
       </div>
     );

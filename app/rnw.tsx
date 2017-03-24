@@ -1,33 +1,49 @@
 import * as React from 'react'
 import {Component} from 'react'
-import { AppRegistry, StyleSheet, Text, View, TextInput } from 'react-native'
-import store from './store'
+import {StyleSheet, Text, View, TextInput } from 'react-native'
+import {observer} from 'mobx-react';
+import Store from './store'
+
+const store = new Store()
 
 const Card = ({ children}: {children?: any}) => <View style={styles.card}>{children}</View>
 const Title = ({ children }: {children?: any}) => <Text style={styles.title}>{children}</Text>
 
-class App extends Component<{}, {}> {
+@observer
+class Rnw extends Component<{}, {}> {
   render() { return (
     <Card>
       <Title>App Card</Title>
-      <Text> Teste sdfasdfasdfasdf </Text>
+      <Text>Name </Text>
       <TextInput
           accessibilityLabel='Write a status update'
-          multiline
-          numberOfLines={2}
           placeholder={`What's happening?`}
           style={[styles.default]}
           testID="name"
           value={store.data.name}
           onChangeText={e => store.handleChangeRN({value:e, name:'name'})}
       />
-      <Text> Teste sdfasdfasdfasdf </Text>
+      <Text>E-mail</Text>
       <TextInput
           placeholder={`What's happening?`}
-          value={store.data.value}
+          value={store.data.email}
+          onChangeText={e => store.handleChangeRN({value:e, name:'email'})}
+      />
+      <Text>Value</Text>
+      <TextInput
+          keyboardType="numeric"
+          value={store.data.value.toString()}
           onChangeText={e => store.handleChangeRN({value:e, name:'value'})}
       />
-      <Text> {JSON.stringify(store.data)} </Text>
+      <Text>Date</Text>
+      <TextInput
+          placeholder={`What's happening?`}
+          value={store.data.date}
+          onChangeText={e => store.handleChangeRN({value:e, name:'date'})}
+      /> <br /><br />
+    {JSON.stringify(store.data)} <br />
+    {store.errorsText} <br />
+    {store.valid}
     </Card>
   )}
 }
@@ -59,5 +75,5 @@ const styles: any = StyleSheet.create({
 })
 
 // App registration and rendering
-AppRegistry.registerComponent('MyApp', (): React.ComponentClass<any> => App)
-AppRegistry.runApplication('MyApp', { rootTag: document.getElementById('rnw') })
+
+export default Rnw

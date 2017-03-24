@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {observer} from 'mobx-react';
-import store from './store';
+import Store from './store';
+
+const store = new Store()
 
 const HtmlForm = () => (
   <div>
@@ -20,7 +22,7 @@ const HtmlForm = () => (
 
     </label ><br /><br />
     {JSON.stringify(store.data)} <br />
-    {store.errorsText}
+    {store.errorsText} <br />
     {store.valid}
   </div>
 )
