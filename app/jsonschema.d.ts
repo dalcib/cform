@@ -1,4 +1,4 @@
-declare namespace JsonSchemaOrg {
+declare namespace JSON {
     /**
      * Core schema meta-schema
      */

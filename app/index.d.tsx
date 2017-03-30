@@ -1,5 +1,5 @@
-declare module 'json-schema-empty' {
-  const empty: (schema: JsonSchemaOrg.Schema) => any
+declare module 'empty-schema' {
+  const empty: (schema: JSON.Schema) => any
   export default empty
 }
 

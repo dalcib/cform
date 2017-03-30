@@ -41,7 +41,8 @@
     "mobx-react": "",
     "js-plus": "",
     "ajv": "",
-    "json-schema-empty": ""
+    "empty-schema": "",
+    "carbon-ui": ""
   },
   "keywords": [],
   "license": "MIT",
